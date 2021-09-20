@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/13 17:50:48 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/19 16:32:34 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/20 17:42:03 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,14 +178,17 @@ int main(int argc, char *argv[])
 	// determine number of elements
 	if (argc - 1 == 2 || argc - 1 == 3)
 	{
-		//printf(YEL"Found 2 or 3 elements\n"RES);
+		//printf(YEL"Found 2 or 3 elements, argc: %d\n"RES, argc);
+		//printf(YEL"   0[%s],  1[%s],  2[%s],   3[%s]\n"RES, argv[0], argv[1], argv[2], argv[3]);
 		sort_3_elements(argc, input, box_b); // little sorting, 3 elements
+		return (0);
 		//print_box(input, argc - 1, "Final box_a");
 	}
 	else if (argc - 1 == 4 || argc - 1 == 5)
 	{
 		//printf(YEL"Found 4 or 5 elements\n"RES);	
 		sort_5_elements(argc, input, box_b); // sorting 5 elements
+		return (0);
 		//print_box(input, argc - 1, "Final box_a");
 	}
 	else
@@ -215,6 +218,7 @@ int main(int argc, char *argv[])
 			i++;
 		}
 
+		//printf(YEL"--- before big sort --- \n"RES);
 		big_sort(argc, max_nr_bits, box_a, box_b);
 		copy_orig_values_to_sorted_final(argc, input, input_simplified, final);
 
@@ -226,6 +230,7 @@ int main(int argc, char *argv[])
 		//print_box(final, argc - 1, "Box Final, orig values copied from Input, but put in place of ordered sinplified");
 	}
 
+	//printf(YEL"--- after else, big sort --- \n"RES);
 	
 
 	// copy_to_sorted_temp(argc, input, input_sorted_temp);

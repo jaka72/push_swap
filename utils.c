@@ -6,11 +6,56 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/15 13:46:44 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/19 20:38:38 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/20 18:03:51 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	find_nr_bits(int longest_nr, int *max_nr_bits)
+{
+    *max_nr_bits = 0;
+	//longest_nr = 7;
+	while (longest_nr != 0)
+	{
+		longest_nr = longest_nr>>1;
+		(*max_nr_bits)++;
+		//////printf("   longest>>1: %d,", longest_nr);
+	}
+	////printf("Find max nr of bits: %d\n", *max_nr_bits);
+	////printf("\n///////////////////////////////////////////\n");
+}
+
+void get_max(int argc, int *box_a, int *max)
+{
+    int i;
+    
+    i = 1;
+	*max = box_a[0];
+	while (i < argc - 1)
+	{
+		if (*max < box_a[i])
+			*max = box_a[i];
+		i++;
+	}
+	//printf("\nFound largest number:  %d\n", *max);
+}
+
+void get_min(int *box_a, int *min)
+{
+    int i;
+
+	////printf("\nFind min in box a, count: %d\n", t_count.box_a);
+    i = 1;
+	*min = box_a[0];
+	while (i < t_count.box_a)
+	{
+		if (*min > box_a[i])
+			*min = box_a[i];
+		i++;
+	}
+	//printf("\nFound smallest number: %d", *min);
+}
 
 int		check_identical_elements(int argc, int *input)
 {
@@ -48,19 +93,5 @@ int	check_if_sorted(int argc, int *input)
 			return (0);
 	}
 	return (1);
-}
-
-
-void	print_box(int *box, int nr, char *s)
-{
-	int i;
-	printf("\n%s (nr elem: %d)\n", s, nr);
-	i = 0;
-	while (i < nr)
-	{
-		printf("  %d["RED"%d"RES"],", i, box[i]);
-		i++;
-	}
-	//printf("\n");
 }
 

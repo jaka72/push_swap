@@ -6,27 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/15 17:44:24 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/19 15:40:15 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/20 18:03:39 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	find_nr_bits(int longest_nr, int *max_nr_bits)
-{
-    *max_nr_bits = 0;
-	//longest_nr = 7;
-	while (longest_nr != 0)
-	{
-		longest_nr = longest_nr>>1;
-		(*max_nr_bits)++;
-		//////printf("   longest>>1: %d,", longest_nr);
-	}
-	////printf("Find max nr of bits: %d\n", *max_nr_bits);
-	////printf("\n///////////////////////////////////////////\n");
-}
 
-	
 void find_longest_nr(int argc, int *longest_nr, int *input_simplified)
 {
     int i;
