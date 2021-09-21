@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/13 17:50:48 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/21 17:21:03 by jmurovec      ########   odam.nl         */
+/*   Updated: 2021/09/21 17:28:51 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,18 +181,12 @@ int main(int argc, char **argv)
 		}
 	}
 
-	print_box(b.input, t_count.box_a, "box: input");
 	printf("\ncount input: %d\n", t_count.box_a);
+	print_box(b.input, t_count.box_a, "box: input");
+	
 
-	// if (allocate_all_boxes(argc, &b) == -1)
-	// 	return (-1);
-	// if (argc - 1 == 2 || argc - 1 == 3)
-	// 	return (sort_3_elements(argc, b.input, b.box_b));
-	// else if (argc - 1 == 4 || argc - 1 == 5)
-	// 	return (sort_5_elements(argc, b.input, b.box_b));
-	// else
-	// 	sort_5plus_elements(argc, &b);
-	// t_oper.all = t_oper.pa + t_oper.pb + t_oper.ra + t_oper.sa + t_oper.rra;
-	// free_all(&b);
+	free(b.input);
+	free(b.box_b);
+
 	return (0);
 }
