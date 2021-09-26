@@ -6,7 +6,7 @@
 #    By: jmurovec <jmurovec@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/20 16:31:02 by jmurovec      #+#    #+#                  #
-#    Updated: 2021/09/26 18:33:05 by jmurovec      ########   odam.nl          #
+#    Updated: 2021/09/26 19:19:21 by jmurovec      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,8 @@ OBJ_DIR 		= obj_dir
 
 BONNUS 			= 0
 
-# name of the operating system
-UNAME_S := $(shell uname -s)
-					
+
+
 C_FILES_MAIN	= 	push_swap.c \
 					utils.c \
 					initial_check.c \

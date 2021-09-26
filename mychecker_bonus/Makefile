@@ -6,7 +6,7 @@
 #    By: jmurovec <jmurovec@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/20 16:31:02 by jmurovec      #+#    #+#                  #
-#    Updated: 2021/09/26 18:55:37 by jmurovec      ########   odam.nl          #
+#    Updated: 2021/09/26 19:18:44 by jmurovec      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,11 @@ NAME = checker_bonus
 FLAGS = -Wall -Wextra -Werror
 CC = gcc
 
-NORM = norminette *.c *.h
-
 LIBFT			= libft/libft.a
 LIBFTDIR		= libft
 OBJ_DIR 		= obj_dir
 
-BONNUS 			= 0
-					
+
 C_FILES_MAIN	= 	mychecker_bonus.c \
 					mychecker_bonus_utils.c \
 					initial_check.c \
@@ -41,15 +38,14 @@ C_FILES_MAIN	= 	mychecker_bonus.c \
 					sort_and_simplify.c \
 					final_check.c
 
-C_FILES_BONUS	=	
 
 OBJ_FILES_MAIN 		= $(patsubst %, $(OBJ_DIR)/%, $(C_FILES_MAIN:.c=.o))
 
-ifeq ($(BONNUS),0)
+#ifeq ($(BONNUS),0)
 	OBJ_FILES = $(OBJ_FILES_MAIN)
-else
-	OBJ_FILES = $(OBJ_FILES_MAIN) $(OBJ_FILES_BONUS)
-endif
+#else
+#	OBJ_FILES = $(OBJ_FILES_MAIN) $(OBJ_FILES_BONUS)
+#endif
 
 all:	makedir $(NAME)
 		@echo "$(MAG)\n--- MAKEFILE DONE ------------ \n$(WHITE)"
@@ -72,7 +68,7 @@ $(OBJ_DIR)/%.o: 	%.c
 $(NAME): $(OBJ_FILES)
 		@echo "$(MAG)\n - Making Mychecker_bonus Executable --- $(WHITE)"
 		gcc $^ $(FLAGS) $(LIBFT) -o $(NAME)
-		mv checker_bonus ../
+		cp checker_bonus ../
 
 re:		fclean all
 
@@ -81,6 +77,7 @@ norm:
 
 clean:	
 		rm -rf $(OBJ_DIR)
+		rm checker_bonus
 		
 
 fclean:	clean
