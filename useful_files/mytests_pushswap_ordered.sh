@@ -32,15 +32,15 @@ do
 			# ./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN $numbers $LGREY; ./push_swap $numbers | ./checker_linux $numbers;)
 		
 		# CODAM CHECKER - MAC
-			# ./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN $numbers $LGREY; ./push_swap $numbers | ./checker_Mac $numbers;)
+			# ./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN ${numbers} $LGREY; ./push_swap ${numbers} | ./checker_Mac ${numbers};)
 
-		# MY CHECKER - LINUX
-			./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN $numbers $LGREY; ./push_swap $numbers | ./mychecker_bonus/mychecker_bonus $numbers;)
+		# MY CHECKER - MAC OR LINUX
+			 ./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN $numbers $LGREY; ./push_swap $numbers | ./checker_bonus $numbers;)
 
 
-
+		# ------------------------------
 		# COUNT OPERATIONS
-			# ./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN $numbers $LGREY; ./push_swap $numbers | wc -l )
+			#./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN $numbers $LGREY; ./push_swap $numbers | wc -l )
 		
 			
 		i=$(( i+1 ))
