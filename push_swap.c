@@ -6,13 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/13 17:50:48 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/25 19:30:25 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 12:49:39 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_all(struct s_boxes *b)
+void	free_all(t_boxes *b)
 {
 	free(b->input);
 	free(b->input_sorted_temp);
@@ -22,7 +22,7 @@ void	free_all(struct s_boxes *b)
 	free(b->box_b);
 }
 
-int	allocate_all_boxes(int argc, struct s_boxes *b)
+int	allocate_all_boxes(int argc, t_boxes *b)
 {
 	b->input_sorted_temp = malloc((argc - 1) * sizeof(int));
 	b->input_simplified = malloc((argc - 1) * sizeof(int));
@@ -40,7 +40,7 @@ int	allocate_all_boxes(int argc, struct s_boxes *b)
 //	b.count.ra + b.count.sa + b.count.rra;
 int	main(int argc, char **argv)
 {
-	t_box	b;
+	t_boxes	b;
 
 	if (initial_check(argc, argv, &b) == -1)
 		return (-1);

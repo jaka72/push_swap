@@ -6,13 +6,13 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 17:52:29 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/09/25 19:47:54 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 12:34:45 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 // last becomes first
-void	reverse_rotate_b(int *box_b, struct s_boxes *box)
+void	reverse_rotate_b(int *box_b, t_boxes *box)
 {
 	int	i;
 	int	temp;
@@ -30,7 +30,7 @@ void	reverse_rotate_b(int *box_b, struct s_boxes *box)
 }
 
 // last becomes first
-void	reverse_rotate_a(int *box_a, struct s_boxes *box)
+void	reverse_rotate_a(int *box_a, t_boxes *box)
 {
 	int	i;
 	int	temp;
@@ -47,7 +47,7 @@ void	reverse_rotate_a(int *box_a, struct s_boxes *box)
 	ft_putstr("rra\n");
 }
 
-void	rotate_b(int *box_b, struct s_boxes *box)
+void	rotate_b(int *box_b, t_boxes *box)
 {
 	int	i;
 	int	temp;
@@ -64,7 +64,7 @@ void	rotate_b(int *box_b, struct s_boxes *box)
 	ft_putstr("rb\n");
 }
 
-void	rotate_a(int *box_a, struct s_boxes *box)
+void	rotate_a(int *box_a, t_boxes *box)
 {
 	int	i;
 	int	temp;

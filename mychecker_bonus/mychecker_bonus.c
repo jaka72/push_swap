@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/13 17:50:48 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/26 14:30:57 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 15:08:56 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,16 @@ int	read_chars(char *c, struct s_boxes *b)
 		free_both(b);
 		return (-1);
 	}
+
+	///// 
+	if (*c != 's' && *c != 'a' && *c != 'r' && *c != '\n')
+	{
+		free_both(b);
+		ft_putstr("Error\n");
+		return (-1);
+	}
+
+
 	return (0);
 }
 

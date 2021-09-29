@@ -6,13 +6,13 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 17:53:00 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/09/25 19:46:47 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 12:35:01 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap_b(int *box, struct s_boxes *b)
+int	swap_b(int *box, t_boxes *b)
 {
 	int	temp;
 
@@ -24,7 +24,7 @@ int	swap_b(int *box, struct s_boxes *b)
 	return (0);
 }
 
-int	swap_a(int *box, struct s_boxes *b)
+int	swap_a(int *box, t_boxes *b)
 {
 	int	temp;
 

@@ -6,13 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/15 13:46:44 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/26 11:27:00 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 12:35:56 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reset_all(int argc, struct s_boxes *box)
+void	reset_all(int argc, t_boxes *box)
 {
 	box->count.a = argc - 1;
 	box->count.b = 0;
@@ -30,7 +30,7 @@ int	error(int r, char *msg)
 	return (r);
 }
 
-void	find_nr_bits(struct s_boxes *box)
+void	find_nr_bits(t_boxes *box)
 {
 	box->data.max_nr_bits = 0;
 	while (box->data.longest_nr != 0)
@@ -54,7 +54,7 @@ void	get_max(int argc, int *max, int *box_a)
 	}
 }
 
-void	get_min(int *min, int *box_a, struct s_boxes *box)
+void	get_min(int *min, int *box_a, t_boxes *box)
 {
 	int	i;
 

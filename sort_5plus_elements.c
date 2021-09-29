@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 12:59:34 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/09/26 14:25:15 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 12:35:37 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	copy_orig_values_to_sorted_finnal(int argc, int *input,
 // REPEAT pb and ra ON boxA, on each bitplace, times argc-1
 //   ie: if largest number has 5 bitplaces (10110), repeat 5 cycles 
 ////printf("\nStart Loop (maxbits:%d, argc:%d)\n", max_nr_bits, argc);
-void	big_sort(int argc, int *box_a, int *box_b, struct s_boxes *box)
+void	big_sort(int argc, int *box_a, int *box_b, t_boxes *box)
 {
 	int	i;
 	int	j;

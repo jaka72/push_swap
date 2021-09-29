@@ -6,13 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/15 17:44:24 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/25 19:49:36 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 13:10:50 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	find_longest_nr(int argc, int *input_simplified, struct s_boxes *box)
+void	find_longest_nr(int argc, int *input_simplified, t_boxes *box)
 {
 	int	i;
 
@@ -89,14 +89,15 @@ int	copy_args_convert_to_ints(int argc, char *argv[], int *input)
 {
 	int	i;
 	int	temp;
+	int	flag_overflow;
 
 	i = 1;
 	while (i < argc)
 	{
-		temp = ft_atoi(argv[i]);
+		temp = ft_atoi(argv[i], &flag_overflow);
 		input[i - 1] = temp;
 		i++;
-		if (temp == -999)
+		if (/*temp == -1 &&*/ flag_overflow == 1)
 		{
 			ft_putstr("Error\n");
 			return (-1);

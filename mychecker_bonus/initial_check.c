@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 12:53:26 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/09/26 14:30:32 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 13:25:52 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	check_first_arg(char *str)
 
 int	only_one_arg(int argc, char **argv)
 {
+	int	flag_overflow;
+
 	if (argc - 1 == 1)
 	{
 		if (check_first_arg(argv[1]) < 0)
@@ -65,7 +67,8 @@ int	only_one_arg(int argc, char **argv)
 			ft_putstr("Error\n");
 			return (-1);
 		}
-		if (ft_atoi(argv[1]) == -999)
+		ft_atoi(argv[1], &flag_overflow);
+		if (flag_overflow == 1)
 			ft_putstr("Error\n");
 		return (-1);
 	}

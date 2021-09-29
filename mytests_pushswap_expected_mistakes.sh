@@ -87,7 +87,7 @@ echo -e "$LCYAN\nTEST ./push_swap 2147483648 \nexpected:$RES Error"
 sleep 0.1
 
 echo -e "$LCYAN\nTEST ./push_swap 2147483648 \nexpected:$RES Error"
-./push_swap 2147483648
+./push_swap 21474836471
 sleep 0.1
 
 echo -e "$LCYAN\nTEST ./push_swap 33 2147483648 \nexpected:$RES Error"

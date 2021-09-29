@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/15 17:44:24 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/26 14:31:38 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 13:25:36 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,15 @@ int	copy_args_convert_to_ints(int argc, char *argv[], int *input)
 {
 	int	i;
 	int	temp;
+	int	flag_overflow;
 
 	i = 1;
 	while (i < argc)
 	{
-		temp = ft_atoi(argv[i]);
+		temp = ft_atoi(argv[i], &flag_overflow);
 		input[i - 1] = temp;
 		i++;
-		if (temp == -999)
+		if (flag_overflow == 1)
 		{
 			ft_putstr("Error\n");
 			return (-1);

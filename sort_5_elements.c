@@ -6,13 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/17 13:16:41 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/25 19:48:53 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 12:35:33 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_back_to_a(int *box_a, int *box_b, int nr_min, struct s_boxes *box)
+void	push_back_to_a(int *box_a, int *box_b, int nr_min, t_boxes *box)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ void	push_back_to_a(int *box_a, int *box_b, int nr_min, struct s_boxes *box)
 	}
 }
 
-int	sort_5_elements(int argc, int *box_a, int *box_b, struct s_boxes *box)
+int	sort_5_elements(int argc, int *box_a, int *box_b, t_boxes *box)
 {
 	int	min_0;
 	int	min_1;

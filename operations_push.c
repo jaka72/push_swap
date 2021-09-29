@@ -6,13 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/18 12:53:10 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/26 14:22:57 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/29 12:34:25 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	refresh_a(int *box_a, struct s_boxes *box)
+void	refresh_a(int *box_a, t_boxes *box)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ void	refresh_a(int *box_a, struct s_boxes *box)
 	}
 }
 
-void	refresh_b(int *box_b, struct s_boxes *box)
+void	refresh_b(int *box_b, t_boxes *box)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ void	refresh_b(int *box_b, struct s_boxes *box)
 	}
 }
 
-void	push_a(int b, int *box_a, int *box_b, struct s_boxes *box)
+void	push_a(int b, int *box_a, int *box_b, t_boxes *box)
 {
 	int	i;
 
@@ -56,7 +56,7 @@ void	push_a(int b, int *box_a, int *box_b, struct s_boxes *box)
 	refresh_b(box_b, box);
 }
 
-void	push_b(int a, int *box_a, int *box_b, struct s_boxes *box)
+void	push_b(int a, int *box_a, int *box_b, t_boxes *box)
 {
 	int	i;
 
