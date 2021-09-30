@@ -6,7 +6,7 @@
 /*   By: jmurovec <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/31 18:34:53 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/09/29 12:27:45 by jmurovec      ########   odam.nl         */
+/*   Updated: 2021/09/30 16:49:55 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,7 @@ int	ft_atoi(const char *str, int *flag_overflow)
 		if (num >= 214748364)
 		{
 			if (overflow(sign, num, str, i) == -1)
-			{
 				*flag_overflow = 1;
-				//return (-1);
-			}
 		}
 		num = num * 10 + str[i] - '0';
 		i++;

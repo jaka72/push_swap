@@ -8,8 +8,7 @@ LCYAN="\033[1;36m"
 
 #
 # numbers come from 'generate_numbers_mine.c' 
-#  IT WILL GENERATE 500 INTS IN RANGE -200 TO 299
-#  !! NUMBER -999 IS RESERVED FOR ERRORS FROM atoi()
+#  IT WILL GENERATE 500 INTS IN RANGE -200 TO 299./ch
 #
 
 NUMS_TO_GENERATE=(2 3 4 5 6 50 100 500)

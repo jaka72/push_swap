@@ -5,6 +5,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include "./get_next_line/get_next_line.h"
 # include "./libft/libft.h"
 
 struct	s_data
@@ -66,6 +67,7 @@ void	find_nr_bits(void);
 
 int		swap_a(int *box);
 int		swap_b(int *box);
+void	swap_a_swap_b(struct s_boxes *b);
 void	rotate_a(int *box_a);
 void	rotate_b(int *box_b);
 void	reverse_rotate_a(int *box_a);

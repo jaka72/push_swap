@@ -6,6 +6,9 @@ RES="\033[1;37m"
 LGREY="\033[0;37m"
 LCYAN="\033[1;36m"
 
+echo -e "$YEL\n\n--- Push_swap, Expected: 'exit' ---------------------------------$RES"
+
+
 echo -e "$LCYAN\nTEST ./push_swap \n expected:$RES"
 ./push_swap
 sleep 0.1
@@ -54,6 +57,9 @@ echo -e "$LCYAN\nTEST ./push_swap -2147483648 33 \nexpected:$RES"
 ./push_swap -2147483648 33
 sleep 0.1
 
+
+echo -e "$YEL\n\n--- Push_swap, Expected: 'Error' ---------------------------------$RES"
+
 echo -e "$LCYAN\nTEST ./push_swap - \n expected:$RES Error"
 ./push_swap -
 sleep 0.1
@@ -98,9 +104,48 @@ echo -e "$LCYAN\nTEST ./push_swap -2147483649 \nexpected:$RES Error"
 ./push_swap -2147483649
 sleep 0.1
 
+
+
+echo -e "$YEL\n\n--- Push_swap, Expected: Print instructions ---------------------------------$RES"
+
 echo -e "$LCYAN\nTEST ./push_swap 2147483647 33 \nexpected:$RES sa"
 ./push_swap 2147483647 33
 sleep 0.1
 
 echo -e "$LCYAN\nTEST ./push_swap -33 -2147483648 \nexpected:$RES sa"
 ./push_swap -33 -2147483648
+
+
+
+echo -e "$YEL\n\n--- Checker Bonus ---------------------------------$RES"
+
+echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [sa] \nexpected:$RES OK"
+echo "sa" | ./checker_bonus 5 3
+
+echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [   sa   ] \nexpected:$RES OK"
+echo "   sa   " | ./checker_bonus 5 3
+
+echo -e "$LCYAN\nTEST ./checker_bonus 3 9 7, [ra sa rra] \nexpected:$RES OK"
+echo -e "ra\n sa\n rra" | ./checker_bonus 3 9 7
+
+echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [sa sa sa]  \nexpected:$RES OK"
+echo -e "sa\n sa\n sa " | ./checker_bonus 5 3
+
+echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [  x  sa   ] \nexpected:$RES Error"
+echo "  x  sa   \n\0" | ./checker_bonus 5 3
+
+echo -e "$LCYAN\nTEST ./checker_bonus 3 9 7, [ ra sa rra   x ] \nexpected:$RES Error"
+echo -e " ra\n sa\n rra\n   x" | ./checker_bonus 3 9 7
+
+echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [pb] \nexpected:$RES KO"
+echo -e "pb" | ./checker_bonus 5 3
+
+
+
+#echo -e "$LCYAN\nTEST ./checker_bonus 5 3 \nexpected:$RES Error"
+#echo "tr" | ./checker_bonus 5 3
+
+
+
+#echo -e "TEST ./checker_bonus 5 3,  expected: OK"
+#echo -e "sa" | ./checker_bonus 5 3

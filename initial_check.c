@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 12:53:26 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/09/29 13:13:57 by jmurovec      ########   odam.nl         */
+/*   Updated: 2021/09/30 16:49:15 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	only_one_arg(int argc, char **argv)
 			return (-1);
 		}
 		ft_atoi(argv[1], &flag_overflow);
-		if (/* ft_atoi(argv[1], &flag_overflow) == -1 && */ flag_overflow == 1)
+		if (flag_overflow == 1)
 			ft_putstr("Error\n");
 		return (-1);
 	}

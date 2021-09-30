@@ -6,11 +6,17 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 17:52:29 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/09/26 14:31:13 by jaka          ########   odam.nl         */
+/*   Updated: 2021/09/30 14:33:52 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mychecker_bonus.h"
+
+void	swap_a_swap_b(struct s_boxes *b)
+{
+	swap_a(b->input);
+	swap_b(b->box_b);
+}
 
 // last becomes first
 void	reverse_rotate_b(int *box_b)

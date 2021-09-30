@@ -6,7 +6,7 @@
 #    By: jmurovec <jmurovec@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/20 16:31:02 by jmurovec      #+#    #+#                  #
-#    Updated: 2021/09/26 19:19:21 by jmurovec      ########   odam.nl          #
+#    Updated: 2021/09/30 16:39:51 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ $(OBJ_DIR)/%.o: 	%.c
 
 
 $(NAME): $(OBJ_FILES)
-		@echo "$(GRN)\n - Making cub3D Executable --- $(WHITE)"
+		@echo "$(GRN)\n - Making push_swap Executable --- $(WHITE)"
 		gcc $^ $(FLAGS) $(LIBFT) -o $(NAME)
 
 bonus:	all

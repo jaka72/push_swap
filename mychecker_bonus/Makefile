@@ -6,7 +6,7 @@
 #    By: jmurovec <jmurovec@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/20 16:31:02 by jmurovec      #+#    #+#                  #
-#    Updated: 2021/09/26 19:18:44 by jmurovec      ########   odam.nl          #
+#    Updated: 2021/09/30 10:38:01 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ C_FILES_MAIN	= 	mychecker_bonus.c \
 					sort_5_elements.c \
 					sort_5plus_elements.c \
 					sort_and_simplify.c \
-					final_check.c
+					final_check.c \
+					get_next_line/get_next_line.c
 
 
 OBJ_FILES_MAIN 		= $(patsubst %, $(OBJ_DIR)/%, $(C_FILES_MAIN:.c=.o))
@@ -53,7 +54,7 @@ all:	makedir $(NAME)
 makedir:
 		@echo "$(MAG)\n --- START MAKEFILE ------------ \n$(WHITE)"
 		@echo "$(MAG) Making obj_dir Directory $(WHITE)"
-		mkdir -p $(OBJ_DIR)/
+		mkdir -p $(OBJ_DIR)/  $(OBJ_DIR)/get_next_line
 		@echo "$(MAG)\n Making libft.a Library $(WHITE)"
 		make -C ./libft
 		@echo "$(MAG)\n Start making object files $(WHITE)"
