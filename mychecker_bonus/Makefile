@@ -6,7 +6,7 @@
 #    By: jmurovec <jmurovec@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/20 16:31:02 by jmurovec      #+#    #+#                  #
-#    Updated: 2021/09/30 10:38:01 by jaka          ########   odam.nl          #
+#    Updated: 2021/09/30 17:09:21 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ C_FILES_MAIN	= 	mychecker_bonus.c \
 					sort_5plus_elements.c \
 					sort_and_simplify.c \
 					final_check.c \
-					get_next_line/get_next_line.c
+					get_next_line/get_next_line.c \
+					get_next_line/get_next_line_utils.c
 
 
 OBJ_FILES_MAIN 		= $(patsubst %, $(OBJ_DIR)/%, $(C_FILES_MAIN:.c=.o))
