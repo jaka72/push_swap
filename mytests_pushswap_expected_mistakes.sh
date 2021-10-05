@@ -117,7 +117,17 @@ echo -e "$LCYAN\nTEST ./push_swap -33 -2147483648 \nexpected:$RES sa"
 
 
 
-echo -e "$YEL\n\n--- Checker Bonus ---------------------------------$RES"
+echo -e "$YEL\n\n-----------------------------------------------------$RES"
+echo -e "$YEL\n--- Checker Bonus -----------------------------------$RES"
+
+echo -e "$LCYAN\nTEST ./checker_bonus  ,  [''] \nexpected:$RES "
+echo "" | ./checker_bonus
+
+echo -e "$LCYAN\nTEST ./checker_bonus  ,  [' '] \nexpected:$RES "
+echo " " | ./checker_bonus
+
+echo -e "$LCYAN\nTEST ./checker_bonus  ,  ['     '] \nexpected:$RES "
+echo "     " | ./checker_bonus
 
 echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [sa] \nexpected:$RES OK"
 echo "sa" | ./checker_bonus 5 3
@@ -134,13 +144,23 @@ echo -e "sa\n sa\n sa " | ./checker_bonus 5 3
 echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [  x  sa   ] \nexpected:$RES Error"
 echo "  x  sa   \n\0" | ./checker_bonus 5 3
 
+echo -e "$LCYAN\nTEST ./checker_bonus 3 3, [ sa ] \nexpected:$RES Error"
+echo -e " sa " | ./checker_bonus 3 3
+
+echo -e "$LCYAN\nTEST ./checker_bonus 2147483648 3, [ sa ] \nexpected:$RES Error"
+echo -e " sa " | ./checker_bonus 2147483648 3
+
+echo -e "$LCYAN\nTEST ./checker_bonus 3 9 7, [ xssa ] \nexpected:$RES Error"
+echo -e " xssa " | ./checker_bonus 3 9 7
+
 echo -e "$LCYAN\nTEST ./checker_bonus 3 9 7, [ ra sa rra   x ] \nexpected:$RES Error"
 echo -e " ra\n sa\n rra\n   x" | ./checker_bonus 3 9 7
 
 echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [pb] \nexpected:$RES KO"
 echo -e "pb" | ./checker_bonus 5 3
 
-
+echo -e "$LCYAN\nTEST ./checker_bonus 0 9 1 8 2 7 3 6 4 5, [sa pb rrr] \nexpected:$RES KO"
+echo -e "sa\n pb\n rrr" | ./checker_bonus 0 9 1 8 2 7 3 6 4 5
 
 #echo -e "$LCYAN\nTEST ./checker_bonus 5 3 \nexpected:$RES Error"
 #echo "tr" | ./checker_bonus 5 3
