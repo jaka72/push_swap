@@ -1,7 +1,7 @@
 #ifndef MYCHECKER_BONUS_H
 # define MYCHECKER_BONUS_H
 
-# include <stdio.h> // maybe not needed
+# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -46,24 +46,10 @@ struct	s_operations
 	int	all;
 }	t_oper;
 
-void	get_min(int *box_a, int *min);
-void	get_max(int argc, int *box_a, int *min);
-
 int		initial_check(int argc, char **argv, struct s_boxes *box);
 int		check_identical_elements(int argc, int *input);
 int		check_if_sorted(int argc, int *input);
-
-int		sort_3_elements(int argc, int *box_a, int *box_b);
-int		sort_5_elements(int argc, int *box_a, int *box_b);
-int		sort_5plus_elements(int argc, struct s_boxes *b);
-
 int		copy_args_convert_to_ints(int argc, char *argv[], int *input);
-void	copy_to_sorted_temp(int argc, int *input, int *input_sorted_temp);
-void	bubble_sort(int argc, int *input_sorted_temp);
-void	store_to_simplyfied(int argc, int *input, int *input_sorted_temp,
-			int *input_simplified);
-void	find_longest_nr(int argc, int *input_simplified);
-void	find_nr_bits(void);
 
 int		swap_a(int *box);
 int		swap_b(int *box);
@@ -83,8 +69,6 @@ void	reset_arr(char	*operation);
 
 void	reset_all(int argc);
 int		error(int r, char *msg);
-
-void	print_box(int *box, int nr, char *s);
 
 # define BLKB "\e[40m"
 # define HYEL "\e[0;93m"

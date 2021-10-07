@@ -6,7 +6,7 @@
 #    By: jmurovec <jmurovec@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/20 16:31:02 by jmurovec      #+#    #+#                  #
-#    Updated: 2021/09/30 16:39:51 by jaka          ########   odam.nl          #
+#    Updated: 2021/10/07 12:56:03 by jmurovec      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,6 @@ LIBFTDIR		= libft
 OBJ_DIR 		= obj_dir
 
 BONNUS 			= 0
-
-
 
 C_FILES_MAIN	= 	push_swap.c \
 					utils.c \

@@ -6,6 +6,10 @@ RES="\033[1;37m"
 LGREY="\033[0;37m"
 LCYAN="\033[1;36m"
 
+CHECKER=checker_Mac
+#CHECKER=checker_bonus
+
+
 echo -e "$YEL\n\n--- Push_swap, Expected: 'exit' ---------------------------------$RES"
 
 
@@ -58,6 +62,7 @@ echo -e "$LCYAN\nTEST ./push_swap -2147483648 33 \nexpected:$RES"
 sleep 0.1
 
 
+
 echo -e "$YEL\n\n--- Push_swap, Expected: 'Error' ---------------------------------$RES"
 
 echo -e "$LCYAN\nTEST ./push_swap - \n expected:$RES Error"
@@ -104,6 +109,30 @@ echo -e "$LCYAN\nTEST ./push_swap -2147483649 \nexpected:$RES Error"
 ./push_swap -2147483649
 sleep 0.1
 
+echo -e "$LCYAN\nTEST ./push_swap 3 0 2 '' 1 \n expected:$RES Error"
+./push_swap 3 0 2 '' 1
+sleep 0.1
+
+echo -e "$LCYAN\nTEST ./push_swap 5 3 '' 0 \n expected:$RES Error"
+./push_swap 5 3 '' 0
+sleep 0.1
+
+echo -e "$LCYAN\nTEST ./push_swap 5 '  3  ' \n expected:$RES Error"
+./push_swap 5 '  3  '
+sleep 0.1
+
+
+echo -e "$LCYAN\nTEST ./push_swap '' \n expected:$RES Error"
+./push_swap ''
+sleep 0.1
+
+
+echo -e "$LCYAN\nTEST ./push_swap '   ' \n expected:$RES Error"
+./push_swap '   '
+sleep 0.1
+
+
+
 
 
 echo -e "$YEL\n\n--- Push_swap, Expected: Print instructions ---------------------------------$RES"
@@ -114,58 +143,71 @@ sleep 0.1
 
 echo -e "$LCYAN\nTEST ./push_swap -33 -2147483648 \nexpected:$RES sa"
 ./push_swap -33 -2147483648
+sleep 0.1
 
+echo -e "$LCYAN\nTEST ./push_swap -0 \n expected:$RES"
+./push_swap -0
+sleep 0.1
+
+echo -e "$LCYAN\nTEST ./push_swap 5 -0 \n expected:$RES sa"
+./push_swap 5 -0
+sleep 0.1
+
+
+### STILL NOT EQUAL TO CHECKER_MAC
+echo -e "$LCYAN\nTEST ./push_swap 5 3 '1 0' \nexpected:$RES OK (ra ra pb ...)"
+./push_swap 5 3 '1 0'
+sleep 0.1
+
+
+echo -e "$LCYAN\nTEST ./push_swap 5 '  3  ' \nexpected:$RES OK (sa)"
+./push_swap 5 '  3  '
+sleep 0.1
 
 
 echo -e "$YEL\n\n-----------------------------------------------------$RES"
-echo -e "$YEL\n--- Checker Bonus -----------------------------------$RES"
-
-echo -e "$LCYAN\nTEST ./checker_bonus  ,  [''] \nexpected:$RES "
-echo "" | ./checker_bonus
-
-echo -e "$LCYAN\nTEST ./checker_bonus  ,  [' '] \nexpected:$RES "
-echo " " | ./checker_bonus
-
-echo -e "$LCYAN\nTEST ./checker_bonus  ,  ['     '] \nexpected:$RES "
-echo "     " | ./checker_bonus
-
-echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [sa] \nexpected:$RES OK"
-echo "sa" | ./checker_bonus 5 3
-
-echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [   sa   ] \nexpected:$RES OK"
-echo "   sa   " | ./checker_bonus 5 3
-
-echo -e "$LCYAN\nTEST ./checker_bonus 3 9 7, [ra sa rra] \nexpected:$RES OK"
-echo -e "ra\n sa\n rra" | ./checker_bonus 3 9 7
-
-echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [sa sa sa]  \nexpected:$RES OK"
-echo -e "sa\n sa\n sa " | ./checker_bonus 5 3
-
-echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [  x  sa   ] \nexpected:$RES Error"
-echo "  x  sa   \n\0" | ./checker_bonus 5 3
-
-echo -e "$LCYAN\nTEST ./checker_bonus 3 3, [ sa ] \nexpected:$RES Error"
-echo -e " sa " | ./checker_bonus 3 3
-
-echo -e "$LCYAN\nTEST ./checker_bonus 2147483648 3, [ sa ] \nexpected:$RES Error"
-echo -e " sa " | ./checker_bonus 2147483648 3
-
-echo -e "$LCYAN\nTEST ./checker_bonus 3 9 7, [ xssa ] \nexpected:$RES Error"
-echo -e " xssa " | ./checker_bonus 3 9 7
-
-echo -e "$LCYAN\nTEST ./checker_bonus 3 9 7, [ ra sa rra   x ] \nexpected:$RES Error"
-echo -e " ra\n sa\n rra\n   x" | ./checker_bonus 3 9 7
-
-echo -e "$LCYAN\nTEST ./checker_bonus 5 3, [pb] \nexpected:$RES KO"
-echo -e "pb" | ./checker_bonus 5 3
-
-echo -e "$LCYAN\nTEST ./checker_bonus 0 9 1 8 2 7 3 6 4 5, [sa pb rrr] \nexpected:$RES KO"
-echo -e "sa\n pb\n rrr" | ./checker_bonus 0 9 1 8 2 7 3 6 4 5
-
-#echo -e "$LCYAN\nTEST ./checker_bonus 5 3 \nexpected:$RES Error"
-#echo "tr" | ./checker_bonus 5 3
+echo -e "$YEL\n--- $CHECKER -----------------------------------$RES"
 
 
+echo -e "$LCYAN\nTEST ./$CHECKER  ,  [''] \nexpected:$RES "
+echo "" | ./$CHECKER
 
-#echo -e "TEST ./checker_bonus 5 3,  expected: OK"
-#echo -e "sa" | ./checker_bonus 5 3
+echo -e "$LCYAN\nTEST ./$CHECKER  ,  [' '] \nexpected:$RES "
+echo " " | ./$CHECKER
+
+echo -e "$LCYAN\nTEST ./$CHECKER  ,  ['     '] \nexpected:$RES "
+echo "     " | ./$CHECKER
+
+echo -e "$LCYAN\nTEST ./$CHECKER 5 3, [sa] \nexpected:$RES OK"
+echo "sa" | ./$CHECKER 5 3
+
+echo -e "$LCYAN\nTEST ./$CHECKER 3 9 7, [ra sa rra] \nexpected:$RES OK"
+echo -e "ra\nsa\nrra" | ./$CHECKER 3 9 7
+
+echo -e "$LCYAN\nTEST ./$CHECKER 5 3, [sa sa sa]  \nexpected:$RES OK"
+echo -e "sa\nsa\nsa" | ./$CHECKER 5 3
+
+echo -e "$LCYAN\nTEST ./$CHECKER 5 3, [   sa   ] \nexpected:$RES Error"
+echo "   sa   " | ./$CHECKER 5 3
+
+echo -e "$LCYAN\nTEST ./$CHECKER 5 3, [  x  sa   ] \nexpected:$RES Error"
+echo "  x  sa   \n\0" | ./$CHECKER 5 3
+
+echo -e "$LCYAN\nTEST ./$CHECKER 3 3, [sa] \nexpected:$RES Error"
+echo -e "sa" | ./$CHECKER 3 3
+
+echo -e "$LCYAN\nTEST ./$CHECKER 2147483648 3, [sa] \nexpected:$RES Error"
+echo -e "sa" | ./$CHECKER 2147483648 3
+
+echo -e "$LCYAN\nTEST ./$CHECKER 3 9 7, [xssa] \nexpected:$RES Error"
+echo -e "xssa" | ./$CHECKER 3 9 7
+
+echo -e "$LCYAN\nTEST ./$CHECKER 3 9 7, [ra sa rra x] \nexpected:$RES Error"
+echo -e "ra\nsa\nrra\nx" | ./$CHECKER 3 9 7
+
+echo -e "$LCYAN\nTEST ./$CHECKER 5 3, [pb] \nexpected:$RES KO"
+echo -e "pb" | ./$CHECKER 5 3
+
+echo -e "$LCYAN\nTEST ./$CHECKER 0 9 1 8 2 7 3 6 4 5, [sa pb rrr] \nexpected:$RES KO"
+echo -e "sa\npb\nrrr" | ./$CHECKER 0 9 1 8 2 7 3 6 4 5
+

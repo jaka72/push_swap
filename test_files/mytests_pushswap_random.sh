@@ -14,6 +14,10 @@ LCYAN="\033[1;36m"
 NUMS_TO_GENERATE=(2 3 4 5 6 50 100 500)
 CYCLES=5
 
+#CHECKER=./checker_Mac 
+#CHECKER=./checker_Linux
+CHECKER=./checker_Bonus
+
 bash make_mychecker.sh
 
 j=0
@@ -27,20 +31,13 @@ do
 	do
 		gcc generate_numbers_mine.c ./libft/libft.a -o gen_nums
 		
-		# CODAM CHECKER - LINUX
-			# ./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN $numbers $LGREY; ./push_swap $numbers | ./checker_linux $numbers;)
-		
-		# CODAM CHECKER - MAC
-			# ./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN ${numbers} $LGREY; ./push_swap ${numbers} | ./checker_Mac ${numbers};)
+		./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN ${numbers} $LGREY; ./push_swap ${numbers} | $CHECKER \
+			$numbers; ./push_swap $numbers | wc -l)
 
-		# MY CHECKER - MAC OR LINUX
-			 ./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN $numbers $LGREY; ./push_swap $numbers | ./checker_bonus $numbers;)
 
 
 		# ------------------------------
-		# COUNT OPERATIONS
-			#./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN $numbers $LGREY; ./push_swap $numbers | wc -l )
-		
+
 			
 		i=$(( i+1 ))
 		sleep 0.8  # WITHOUT THIS GIVES THE SAME NUMBERS

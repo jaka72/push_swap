@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/15 17:44:24 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/30 16:49:36 by jaka          ########   odam.nl         */
+/*   Updated: 2021/10/07 14:47:00 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	find_longest_nr(int argc, int *input_simplified, t_boxes *box)
 	}
 }
 
-// save simplified values to separate array
+// Where input[] is the same as sorted[], 
+//    it becomes 0,1,2,3 ... in simplified[ ]
 void	store_to_simplyfied(int argc, int *input,
 	int *input_sorted_temp, int *input_simplified)
 {
@@ -71,7 +72,6 @@ void	bubble_sort(int argc, int *input_sorted_temp)
 	}
 }
 
-// copy input into sorted_temp
 void	copy_to_sorted_temp(int argc, int *input, int *input_sorted_temp)
 {
 	int	i;
@@ -84,18 +84,22 @@ void	copy_to_sorted_temp(int argc, int *input, int *input_sorted_temp)
 	}
 }
 
-// copy from argv[] to input[], convert to ints
-int	copy_args_convert_to_ints(int argc, char *argv[], int *input)
+int	copy_args_convert_to_ints(int *argc, char *argv[], int *input)
 {
 	int	i;
 	int	temp;
 	int	flag_overflow;
 
 	i = 1;
-	while (i < argc)
+	while (i < *argc)
 	{
-		temp = ft_atoi(argv[i], &flag_overflow);
-		input[i - 1] = temp;
+		if (ft_strlen(argv[i]) != 0)
+		{
+			temp = ft_atoi(argv[i], &flag_overflow);
+			input[i - 1] = temp;
+		}
+		else
+			return (error(-1, "Error\n"));
 		i++;
 		if (flag_overflow == 1)
 		{

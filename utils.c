@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/15 13:46:44 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/29 12:35:56 by jmurovec      ########   odam.nl         */
+/*   Updated: 2021/10/05 14:15:11 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,33 +37,5 @@ void	find_nr_bits(t_boxes *box)
 	{
 		box->data.longest_nr = box->data.longest_nr >> 1;
 		(box->data.max_nr_bits)++;
-	}
-}
-
-void	get_max(int argc, int *max, int *box_a)
-{
-	int	i;
-
-	i = 1;
-	*max = box_a[0];
-	while (i < argc - 1)
-	{
-		if (*max < box_a[i])
-			*max = box_a[i];
-		i++;
-	}
-}
-
-void	get_min(int *min, int *box_a, t_boxes *box)
-{
-	int	i;
-
-	i = 1;
-	*min = box_a[0];
-	while (i < box->count.a)
-	{
-		if (*min > box_a[i])
-			*min = box_a[i];
-		i++;
 	}
 }

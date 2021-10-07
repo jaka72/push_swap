@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/13 17:50:48 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/30 16:24:19 by jaka          ########   odam.nl         */
+/*   Updated: 2021/10/06 11:44:41 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,15 @@ int	choose_operation(char *opr, struct s_boxes *b)
 {
 	if (opr[0] == 's' && opr[1] == 'a' && opr[2] == '\0')
 		swap_a(b->input);
-	else if (opr[0] == 's' && opr[1] == 'b' && (opr[2] == ' '
-			|| opr[2] == '\0'))
+	else if (opr[0] == 's' && opr[1] == 'b' && opr[2] == '\0')
 		swap_b(b->box_b);
-	else if (opr[0] == 's' && opr[1] == 's' && (opr[2] == ' '
-			|| opr[2] == '\0'))
+	else if (opr[0] == 's' && opr[1] == 's' && opr[2] == '\0')
 		swap_a_swap_b(b);
-	else if (opr[0] == 'r' && opr[1] == 'a' && (opr[2] == ' '
-			|| opr[2] == '\0'))
+	else if (opr[0] == 'r' && opr[1] == 'a' && opr[2] == '\0')
 		rotate_a(b->input);
-	else if (opr[0] == 'r' && opr[1] == 'b' && (opr[2] == ' '
-			|| opr[2] == '\0'))
+	else if (opr[0] == 'r' && opr[1] == 'b' && opr[2] == '\0')
 		rotate_b(b->box_b);
-	else if (opr[0] == 'r' && opr[1] == 'r' && (opr[2] == ' '
-			|| opr[2] == '\0'))
+	else if (opr[0] == 'r' && opr[1] == 'r' && opr[2] == '\0')
 	{
 		rotate_a(b->input);
 		rotate_b(b->box_b);
@@ -63,8 +58,6 @@ int	get_chars(char *operation, char *str, int *i)
 {
 	reset_arr(operation);
 	*i = 0;
-	while (str[*i] == ' ')
-		(*i)++;
 	if (str[*i] != 's' && str[*i] != 'r' && str[*i] != 'p')
 	{
 		free(str);
@@ -75,12 +68,12 @@ int	get_chars(char *operation, char *str, int *i)
 		operation[0] = str[*i];
 		(*i)++;
 	}
-	if (str[*i] != '\0' && str[*i] != ' ')
+	if (str[*i] != '\0')
 	{
 		operation[1] = str[*i];
 		(*i)++;
 	}
-	if (str[*i] != '\0' && str[*i] != ' ')
+	if (str[*i] != '\0')
 	{
 		operation[2] = str[*i];
 		(*i)++;

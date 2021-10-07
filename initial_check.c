@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 12:53:26 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/09/30 16:49:15 by jaka          ########   odam.nl         */
+/*   Updated: 2021/10/07 13:22:52 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_if_all_numeric(int argc, char **argv)
 			if (!ft_isdigit(argv[i][j]))
 			{
 				if ((argv[i][j] == '-' || argv[i][j] == '+')
-					&& argv[i][j + 1] == 0)
+					&& !ft_isdigit(argv[i][j + 1]))
 					return (error(-1, "Error\n"));
 				else if (argv[i][j] != '-' && argv[i][j] != '+')
 					return (error(-1, "Error\n"));
@@ -75,29 +75,29 @@ int	only_one_arg(int argc, char **argv)
 	return (0);
 }
 
-int	initial_check(int argc, char **argv, t_boxes *box)
+int	initial_check(int *argc, char **argv, t_boxes *box)
 {
-	if (argc - 1 == 0)
+	if (*argc - 1 == 0)
 		return (-1);
-	if (only_one_arg(argc, argv) < 0)
+	if (check_if_all_numeric(*argc, argv) < 0)
 		return (-1);
-	if (check_if_all_numeric(argc, argv) < 0)
+	if (only_one_arg(*argc, argv) < 0)
 		return (-1);
-	box->input = malloc((argc - 1) * sizeof(int));
+	box->input = malloc((*argc - 1) * sizeof(int));
 	if (box->input == NULL)
 		return (-1);
 	if (copy_args_convert_to_ints(argc, argv, box->input) < 0)
 		return (-1);
-	if (check_identical_elements(argc, box->input) < 0)
+	if (check_identical_elements(*argc, box->input) < 0)
 	{
 		free(box->input);
 		return (-1);
 	}
-	if (check_if_sorted(argc, box->input) == 1)
+	if (check_if_sorted(*argc, box->input) == 1)
 	{
 		free(box->input);
 		return (-1);
 	}
-	reset_all(argc, box);
+	reset_all(*argc, box);
 	return (0);
 }

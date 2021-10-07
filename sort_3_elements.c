@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/17 12:29:48 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/29 12:35:27 by jmurovec      ########   odam.nl         */
+/*   Updated: 2021/10/06 11:38:16 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int	sort_3_elements(int argc, int *box_a, t_boxes *box)
 	int	max;
 	int	min;
 
-	if (argc - 1 == 2)
+	if (box->count.a == 2)
 	{
-		swap_a(box_a, box);
+		if (box_a[0] > box_a[1])
+			swap_a(box_a, box);
 		return (0);
 	}
 	get_min(&min, box_a, box);

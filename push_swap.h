@@ -39,9 +39,10 @@ typedef struct s_boxes
 }	t_boxes;
 
 void	get_min(int *min, int *box_a, t_boxes *box);
+void	get_min_2(int min, int *min2, int *box_a, t_boxes *box);
 void	get_max(int argc, int *max, int *box_a);
 
-int		initial_check(int argc, char **argv, t_boxes *box);
+int		initial_check(int *argc, char **argv, t_boxes *box);
 int		check_identical_elements(int argc, int *input);
 int		check_if_sorted(int argc, int *input);
 
@@ -49,7 +50,7 @@ int		sort_3_elements(int argc, int *box_a, t_boxes *box);
 int		sort_5_elements(int argc, int *box_a, int *box_b, t_boxes *box);
 int		sort_5plus_elements(int argc, t_boxes *box);
 
-int		copy_args_convert_to_ints(int argc, char *argv[], int *input);
+int		copy_args_convert_to_ints(int *argc, char *argv[], int *input);
 void	copy_to_sorted_temp(int argc, int *input, int *input_sorted_temp);
 void	bubble_sort(int argc, int *input_sorted_temp);
 void	store_to_simplyfied(int argc, int *input, int *input_sorted_temp,

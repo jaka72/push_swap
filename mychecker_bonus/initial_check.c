@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 12:53:26 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/09/29 13:25:52 by jmurovec      ########   odam.nl         */
+/*   Updated: 2021/10/07 13:32:13 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_if_all_numeric(int argc, char **argv)
 			if (!ft_isdigit(argv[i][j]))
 			{
 				if ((argv[i][j] == '-' || argv[i][j] == '+')
-					&& argv[i][j + 1] == 0)
+					&& !ft_isdigit(argv[i][j + 1]))
 					return (error(-1, "Error\n"));
 				else if (argv[i][j] != '-' && argv[i][j] != '+')
 					return (error(-1, "Error\n"));
@@ -56,30 +56,9 @@ int	check_first_arg(char *str)
 	return (0);
 }
 
-int	only_one_arg(int argc, char **argv)
-{
-	int	flag_overflow;
-
-	if (argc - 1 == 1)
-	{
-		if (check_first_arg(argv[1]) < 0)
-		{
-			ft_putstr("Error\n");
-			return (-1);
-		}
-		ft_atoi(argv[1], &flag_overflow);
-		if (flag_overflow == 1)
-			ft_putstr("Error\n");
-		return (-1);
-	}
-	return (0);
-}
-
 int	initial_check(int argc, char **argv, struct s_boxes *box)
 {
 	if (argc - 1 == 0)
-		return (-1);
-	if (only_one_arg(argc, argv) < 0)
 		return (-1);
 	if (check_if_all_numeric(argc, argv) < 0)
 		return (-1);
@@ -91,12 +70,6 @@ int	initial_check(int argc, char **argv, struct s_boxes *box)
 	if (check_identical_elements(argc, box->input) < 0)
 	{
 		free(box->input);
-		return (-1);
-	}
-	if (check_if_sorted(argc, box->input) == 1)
-	{
-		free(box->input);
-		ft_putstr("OK\n");
 		return (-1);
 	}
 	reset_all(argc);

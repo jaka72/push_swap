@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/13 17:50:48 by jaka          #+#    #+#                 */
-/*   Updated: 2021/09/29 12:49:39 by jmurovec      ########   odam.nl         */
+/*   Updated: 2021/10/06 13:23:42 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,11 @@ int	allocate_all_boxes(int argc, t_boxes *b)
 	return (0);
 }
 
-//	b.count.all = b.count.pa + b.count.pb + 
-//	b.count.ra + b.count.sa + b.count.rra;
 int	main(int argc, char **argv)
 {
 	t_boxes	b;
 
-	if (initial_check(argc, argv, &b) == -1)
+	if (initial_check(&argc, argv, &b) == -1)
 		return (-1);
 	if (allocate_all_boxes(argc, &b) == -1)
 		return (-1);

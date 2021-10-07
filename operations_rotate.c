@@ -6,11 +6,12 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 17:52:29 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/09/29 12:34:45 by jmurovec      ########   odam.nl         */
+/*   Updated: 2021/10/06 11:38:54 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 // last becomes first
 void	reverse_rotate_b(int *box_b, t_boxes *box)
 {
