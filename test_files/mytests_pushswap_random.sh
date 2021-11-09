@@ -11,7 +11,11 @@ LCYAN="\033[1;36m"
 #  IT WILL GENERATE 500 INTS IN RANGE -200 TO 299./ch
 #
 
-# CHECK IF THE PATHS ARE CORRECT
+#####################################
+# HOW TO USE ########################
+# 	RUN FROM THIS FOLDER (/test_files)
+# 	CHECK IF THE PATHS ARE CORRECT
+
 PUSHSWAP_PATH=../
 LIBFT_PATH=../libft/libft.a
 NUMS_TO_GENERATE=(2 3 4 5 6 50 100 500)
