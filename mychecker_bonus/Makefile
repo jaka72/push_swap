@@ -6,7 +6,7 @@
 #    By: jmurovec <jmurovec@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/20 16:31:02 by jmurovec      #+#    #+#                  #
-#    Updated: 2021/10/06 13:16:32 by jmurovec      ########   odam.nl          #
+#    Updated: 2021/11/09 11:44:52 by jmurovec      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ norm:
 
 clean:	
 		rm -rf $(OBJ_DIR)
-		rm checker_bonus
+		rm -f checker_bonus
 		
 
 fclean:	clean

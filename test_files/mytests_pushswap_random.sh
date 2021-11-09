@@ -11,6 +11,9 @@ LCYAN="\033[1;36m"
 #  IT WILL GENERATE 500 INTS IN RANGE -200 TO 299./ch
 #
 
+# CHECK IF THE PATHS ARE CORRECT
+PUSHSWAP_PATH=../
+LIBFT_PATH=../libft/libft.a
 NUMS_TO_GENERATE=(2 3 4 5 6 50 100 500)
 CYCLES=5
 
@@ -18,7 +21,8 @@ CHECKER=./checker_Mac
 #CHECKER=./checker_Linux
 #CHECKER=./checker_Bonus
 
-bash make_mychecker.sh
+#bash make_mychecker.sh
+
 
 j=0
 while (( $j < 8))
@@ -29,10 +33,11 @@ do
 	i=0
 	while (( $i < $CYCLES ))
 	do
-		gcc generate_numbers_mine.c ./libft/libft.a -o gen_nums
+		gcc generate_numbers_mine.c $LIBFT_PATH -o gen_nums
 		
-		./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN ${numbers} $LGREY; ./push_swap ${numbers} | $CHECKER \
-			$numbers; ./push_swap $numbers | wc -l)
+		./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN ${numbers} $LGREY; \
+			$PUSHSWAP_PATH/push_swap ${numbers} | $CHECKER \
+			$numbers; $PUSHSWAP_PATH/push_swap $numbers | wc -l)
 
 
 		i=$(( i+1 ))

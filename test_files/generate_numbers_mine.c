@@ -1,5 +1,5 @@
 #include <time.h>
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	overflow(int sign, int num, const char *str, int i)
 {	
@@ -131,4 +131,3 @@ int main(int argc, char **argv)
 	free(arr);
 	return (0);
 }
-
