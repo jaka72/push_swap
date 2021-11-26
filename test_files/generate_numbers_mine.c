@@ -1,5 +1,14 @@
 #include <time.h>
-#include "../push_swap.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
 
 static int	overflow(int sign, int num, const char *str, int i)
 {	
@@ -56,13 +65,7 @@ int	ft_atoi_2(const char *str)
 	return (num * sign);
 }
 
-
-
-
-///////////////
-
-
-
+///////////////////////////////////////////////////////////////
 
 void generate_array_random_nrs(int *num, int n1, int n2)
 {

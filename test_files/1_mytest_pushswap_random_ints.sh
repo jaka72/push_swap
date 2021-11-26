@@ -6,27 +6,26 @@ RES="\033[1;37m"
 LGREY="\033[0;37m"
 LCYAN="\033[1;36m"
 
-#
-# numbers come from 'generate_numbers_mine.c' 
-#  IT WILL GENERATE 500 INTS IN RANGE -200 TO 299./ch
-#
+#########################################
+# HOW TO USE ############################
+# 	RUN FROM THIS FOLDER ( ./test_files )
+# 	CHECK IF YOUR PATH IS CORRECT
+	PUSHSWAP_PATH=../push_swap
 
-#####################################
-# HOW TO USE ########################
-# 	RUN FROM THIS FOLDER (/test_files)
-# 	CHECK IF THE PATHS ARE CORRECT
+### CHOOSE A CHECKER ####################
+#	CHECKER=./checker_Mac 
+	CHECKER=./checker_linux
+#	CHECKER=./checker_bonus
 
-PUSHSWAP_PATH=../
-LIBFT_PATH=../libft/libft.a
-NUMS_TO_GENERATE=(2 3 4 5 6 50 100 500)
-CYCLES=5
 
-CHECKER=./checker_Mac 
-#CHECKER=./checker_Linux
-#CHECKER=./checker_Bonus
+#########################################
+# The numbers come from file 'generate_numbers_mine.c' (gen_nums)
+# This generates packages of random integers in range -200 to 299
+	NUMS_TO_GENERATE=(2 3 4 5 6 50 100 500)
+	CYCLES=5
+
 
 #bash make_mychecker.sh
-
 
 j=0
 while (( $j < 8))
@@ -37,15 +36,14 @@ do
 	i=0
 	while (( $i < $CYCLES ))
 	do
-		gcc generate_numbers_mine.c $LIBFT_PATH -o gen_nums
+		gcc generate_numbers_mine.c -o gen_nums
 		
 		./gen_nums ${NUMS_TO_GENERATE[j]} | (read numbers; echo -e $LCYAN ${numbers} $LGREY; \
-			$PUSHSWAP_PATH/push_swap ${numbers} | $CHECKER \
-			$numbers; $PUSHSWAP_PATH/push_swap $numbers | wc -l)
-
+			$PUSHSWAP_PATH ${numbers} | $CHECKER \
+			$numbers; $PUSHSWAP_PATH $numbers | wc -l)
 
 		i=$(( i+1 ))
-		sleep 0.8  # WITHOUT THIS GIVES THE SAME NUMBERS
+		sleep 0.8  # (without sleep it gives repeated ints)
 	done
 	j=$(( j+1 ))
 done
